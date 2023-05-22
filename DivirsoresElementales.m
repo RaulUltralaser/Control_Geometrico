@@ -30,7 +30,7 @@ ddd1=gcd(dd1,dd2);
 delta1=gcd(ddd1,matriz(3,3));
 
 
-%% todo esto es para calcular el segundo divisor
+%% esto es para calcular el segundo divisor
 menores = calcularMenores(matriz);
 
 d1=gcd(menores(1,1),menores(1,2));
@@ -46,7 +46,13 @@ delta2=gcd(ddd1,menores(3,3));
 
 delta3=det(matriz);
 
+%% presenta los divisores
 delta = [delta1,delta2,delta3]
+
+%% funciones que se mandan a llamar para el calculo del segundo divisor
+% técnicamente separa la matriz en todas sus posibles combinaciones 
+% y a cada combinación le calcula su determinante, acomoda los resultados
+% en una matriz
 
 function menores = calcularMenores(matriz)
     [n, ~] = size(matriz);
