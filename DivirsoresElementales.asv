@@ -2,12 +2,10 @@ clc
 clearvars
 close all 
 
-%%%%%%%%%%%% Programa de minimo común divisor %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%% calcula los divisores determinantales de una matriz 3x3 %%%%%%%%%%%%%
-%%%% los presenta como delta=[delta1, delta2, delta3]%%%%%%%%%%%%%%%%%%%%%
-%%%% y los divisores elementales como is=[i1, i2,i3] %%%%%%%%%%%%%%%%%%%%%
-%%%% se pueden comprobar estos divisores mediante la función %%%%%%%%%%%%%
-%%%% smithForm(matriz) donde i3 queda al inicio de la diagonal %%%%%%%%%%%
+%%%%%%%%%%%% Programa de minimo común divisor %%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% calcula los divisores determinantales de una matriz 3x3 %%%%%%%%%%%%%%
+%%%% los presenta como delta=[delta1, delta2, delta3]%%%%%%%%%%%%%%%%%%%
+%%%% y los divisores elementales 
 
 %% Esto se tiene que poner manualmente 
 
@@ -58,7 +56,7 @@ i1= delta3/delta2;
 i2= delta2/delta1;
 i3= delta1/1;
 
-is=[i1 i2 i3]
+is=[i1,]
 
 %% funciones que se mandan a llamar para el calculo del segundo divisor
 % técnicamente separa la matriz en todas sus posibles combinaciones 
