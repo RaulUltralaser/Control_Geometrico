@@ -1,0 +1,5 @@
+Error in ViconDataStreamSDK_MATLABInternalTest (line 17)
+Client.LoadViconDataStreamSDK();
+ 
+Caught "std::exception" Exception message is:
+An error occurred while initializing child process:  While attempting to execute "C:\Program Files\MATLAB\R2022b\bin\win64\mwdocsearch.exe server -m C:\Program Files\MATLAB\R2022b -p 49685 -i 4020 -v C:\Users\OEM\AppData\Local\Temp\": CreateProcessW: Insufficient system resources exist to complete the requested service
