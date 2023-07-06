@@ -7,13 +7,13 @@ function Q = miinco(A,C,X)
 %        Basile and Marro 4-20-90
 
    nv = 0;
-   X1 = ima(X,0);
+   X1 = IMA(X,0);
    Q=X1;
    [mq,nq] = size(Q);
    n = 0;
 while (nq-nv) > 0
    nv = nq;
-   Q = ima([X1 A*(ints(Q,C))],0);
+   Q = IMA([X1 A*(INTS(Q,C))],0);
    [mq,nq] = size(Q);
 % Monitoring iterations
 %  n = n+1;

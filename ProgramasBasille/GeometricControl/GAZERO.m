@@ -32,9 +32,9 @@ if(k1 == 1)
   B=[B; D];
   C=[zeros(mc,na) eye(mc)];
 end
-E = ortc(C');
-J = mainco(A,B,E);
-[P,Q] = stabv(A,B,J);
+E = ORTC(C');
+J = MAINCO(A,B,E);
+[P,Q] = STABV(A,B,J);
 z = eig(P);
 % --- last line of gazero ---
 

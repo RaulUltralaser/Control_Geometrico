@@ -6,6 +6,6 @@ function Q = mainco(A,B,X)
 
 %	 Basile and Marro 4-20-90
 
-   Q = ortc(miinco(A',ortc(B),ortc(X)));
+   Q = ORTC(MIINCO(A',ORTC(B),ORTC(X)));
 % --- last line of mainco ---
 

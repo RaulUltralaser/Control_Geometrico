@@ -7,7 +7,7 @@ function [P,Q] = stabv(A,B,X)
 
 % Check and message
    [mx,nx] = size(X);
-   T=mainco(A,B,X);
+   T=MAINCO(A,B,X);
    [my,ny] = size(T);
 if (ny ~= nx)
    error('   X is not a controlled invariant in STABV')
@@ -16,19 +16,19 @@ end
    X = T;
    tol = norm(A,'fro')*eps*10^4;
    [ma,na] = size(A);
-   P = miinco(A,X,B);
-   R = ints(X,P);
+   P = MIINCO(A,X,B);
+   R = INTS(X,P);
    [m1,n1] = size(R);
    no = norm(R,'fro');
 if (n1 == 1)&(no < tol)
    n1 = 0;
 end
 if n1 == 0
-   T = ima(X,0);
+   T = IMA(X,0);
    Q = P;
 else
-   T = ima([R X],0);
-   Q = ima([R P],0);
+   T = IMA([R X],0);
+   Q = IMA([R P],0);
 end
    [m2,n2] = size(T);
    [mx,nx] = size(Q);
@@ -38,9 +38,9 @@ if (n2 == 1)&(no < tol)
    n2 = 0;
 end
 if n2 == 0
-   T = ima([P ortc(P)],0);
+   T = IMA([P ortc(P)],0);
 else
-   T = ima([T ortc(T)],0);
+   T = IMA([T ORTC(T)],0);
    T(:,(n2+1):(n2+nx-n1)) = Q;
 end
    [m3,n3] = size(T);
@@ -52,6 +52,6 @@ end
    ni = n1+1;
    nx = n2-n1;
    P = A1(ni:nx,ni:nx);
-   [T Q] = stabi(A,sums(X,mininv(A,B)));
+   [T Q] = STABI(A,SUMS(X,MININV(A,B)));
 % --- last line of stabv ---
 

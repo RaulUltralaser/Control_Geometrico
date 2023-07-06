@@ -58,3 +58,11 @@ end
    F = [-A1(1:nb,1:n3) zeros(nb,c1)]*inv(T);
 % --- last line of effe ---
 
+end
+
+
+A=[-1 -2;0 -2]; 
+B=[1;1];
+X=[1 0;0 1];
+
+effe(A,B,X)

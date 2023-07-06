@@ -4,6 +4,6 @@ function Q = sums(A,B)
 
 %       Basile and Marro 4-20-90
 
-   Q = ima([A B],1);
+   Q = IMA([A B],1);
 % --- last line of sums ---
 
