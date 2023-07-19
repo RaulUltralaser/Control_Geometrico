@@ -21,6 +21,8 @@ KerD=null(D,'r');
 V_i = KerD;
 V_prev = V_i;
 r = size(KerD);
+
+
 %% EL ciclo For se detiene cuando un V_i es igual a V_{i+1}, y lo muestra
 %%en la command window
 for i= 0:r
@@ -36,6 +38,24 @@ for i= 0:r
     end
     i=i+1;
 end
+%% Inicialización para Restrella
+S_i=0;
+r2=size(V_i);
+S_prev=S_i;
+
+for i= 0:r2
+    wi=cat(2,A*S_prev,B);
+    S_i=intersection(V_i,wi);
+    if isequal(S_i,S_prev)
+        S_i
+        break
+    else
+        S_prev=S_i;
+    end
+    i=i+1;
+end    
+
+cap=intersection(V_i,S_i)
 
 
 
