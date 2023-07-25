@@ -47,21 +47,17 @@ D=[1 0;
 
 P*(A+D*C)*w_i; %Esto es para saber si está ecuación es igual a cero
 
-% for i= 0:10
-%     inters=intersectionsum(w_prev,kerC);
-%     w_i=w_prev+A*inters
-%     w_prev
-%     if isequal(w_i,w_prev)
-%         disp('w_estrella=')
-%         w_i
-%         break
-%     else
-%         w_prev=w_i;
-%     end
-%     i=i+1;
-% end 
 
+Pr=null(P,'r');
 
+A0=A+D*C;
+
+F=P*A0*Pr;
+G=P*B;
+E=P*D;
+M=C*Pr;
+
+R=place(A,B,[-1 -2 -3])
 
 function Cap = intersection(A,B)
     Aort = null(A','r')';
@@ -71,9 +67,4 @@ function Cap = intersection(A,B)
 end
 
 
-% function Cap = intersectionsum(A,B)
-%     Aort = null(A','r')';
-%     Bort = null(B','r')';
-%     Suma = Aort + Bort;
-%     Cap = null(Suma,'r');   
-% end
+
