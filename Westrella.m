@@ -5,11 +5,15 @@ clearvars
 A=[2 1 0;0 -3 0;-1 0 -1];
 B=[0;1;0];
 C=[0 1 0; 0 0 1];
-L=[0 ;0; 1];
+L1=[0;1;2];
+L=[0 ;0; 1];  %tecnicamente este el L2, pero para el observador lo defini 
+              %como L, así que prefiero dejarlo así para que siga
+              %funcionando
+
 
 %% Esto es lo para el cálculo de w_estrella
 kerC=null(C,'r');     %inicializó el kernel de C
-w_prev=L;             %inicializó e
+w_prev=L1;             %inicializó e
 
 %% Este ciclo es la iteración para w_estrella
 for i= 1:10
@@ -65,6 +69,27 @@ M=C*Pr;
 %% Esto es para una ley de control que vuelva estable mi sistema
 R=place(A,B,[-1 -2 -3]);
 
+%% Esto es lo para el cálculo de S_estrella
+X=eye(size(A));      %inicializó el espacio X base canónica
+S_prev=X;             %inicializó s0
+
+
+while i<10
+    P1=inv(A)*S_prev;
+    P2=intersection(P1,kerC);
+    S_i=cat(2,w_i,P2);
+    if isequal(S_i,S_prev)
+        disp('S_estrella es:')
+        S_i
+        break
+    else
+        S_prev=S_i;
+    end
+    i=i+1;
+end 
+
+%% Defino cosas para el generador de residuos
+H=null(C*S_i,'r')      %el aniquilador de CS (NOTAS DEL 26 de JULIO)
 
 
 %% Función para calcular la intersección de subespacios
