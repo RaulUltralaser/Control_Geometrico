@@ -50,24 +50,17 @@ P*(A+D*C)*w_i; %Esto es para saber si está ecuación es igual a cero
 
 Pr=[1 0;
     0 1;
-    0 0];      %P*Pr debe ser igual a I
-P*Pr;          %Esto es para confirmar que sea igual a I
-%% Defino cosas del observador
-%Zdot=P*A0*Pr+P*B*u-P*D*y
-%g=C*Pr
-A0=A+D*C;      
+    0 0];      %P*Pr debe ser igual a la
+P*Pr;
+A0=A+D*C;
 
-F=P*A0*Pr;      
+F=P*A0*Pr;
 G=P*B;
 E=P*D;
 M=C*Pr;
 
-%% Esto es para una ley de control que vuelva estable mi sistema
-R=place(A,B,[-1 -2 -3]);
+R=place(A,B,[-1 -2 -3])
 
-
-
-%% Función para calcular la intersección de subespacios
 function Cap = intersection(A,B)
     Aort = null(A','r')';
     Bort = null(B','r')';
