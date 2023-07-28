@@ -89,7 +89,12 @@ while i<10
 end 
 
 %% Defino cosas para el generador de residuos
-H=null(C*S_i,'r')      %el aniquilador de CS (NOTAS DEL 26 de JULIO)
+%H es el aniquilador de CS (NOTAS DEL 26 de JULIO)
+% H=null(C*S_i,'r');      %Valio verga porque no tiene kernel
+syms H11 H12 H21 H22
+Hs=[H11 H12;H21 H22];
+% Hice los cálculos  a mano en mi libretita
+H=[2 -1;2 -1];
 
 
 %% Función para calcular la intersección de subespacios
