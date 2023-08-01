@@ -13,7 +13,7 @@ L=[0 ;0; 1];  %tecnicamente este el L2, pero para el observador lo defini
 
 %% Esto es lo para el cálculo de w_estrella
 kerC=null(C,'r');     %inicializó el kernel de C
-w_prev=L1;             %inicializó e
+w_prev=L;             %inicializó e
 
 %% Este ciclo es la iteración para w_estrella
 for i= 1:10
@@ -37,7 +37,7 @@ for i= 1:10
 end 
 %% Esto es para calcular la representación matricial de la proyección canonica
 syms b11 b12 b21 b22 b31 b32
-P=null(w_i','r')'; %P*W_i deben ser sero, por lo que así está bien
+P=null(w_i','r')'; %P*W_i deben ser cero, por lo que así está bien
 
 D=[b11 b12;
    b21 b22;
@@ -93,8 +93,14 @@ end
 % H=null(C*S_i,'r');      %Valio verga porque no tiene kernel
 syms H11 H12 H21 H22
 Hs=[H11 H12;H21 H22];
-% Hice los cálculos  a mano en mi libretita
-H=[2 -1;2 -1];
+% Hice los cálculos  a mano en mi libretita, estas matrices fueron
+% calculadas a mano P=[0 1 0]. Les puse r por residuos para diferenciarlos
+% de los del observador
+H=[1 -0;1 0];
+Mr=[1;1];
+Fr=-5;
+Gr=1;
+Er=[-2 0];
 
 
 %% Función para calcular la intersección de subespacios
